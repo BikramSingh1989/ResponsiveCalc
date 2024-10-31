@@ -9,6 +9,12 @@ function updateScreen() {
         screen.innerText = currentInput;
     }
 
+    // Display the entire expression or '0' if empty
+    screen.innerText = expression || '0';
+
+    // Set a default large font size in pixels
+    screen.style.fontSize = '48px'; // Start with a larger font size
+
     // Ensure the font size is consistent and shrinks when needed
     screen.style.fontSize = '3rem'; // Set default font size
 

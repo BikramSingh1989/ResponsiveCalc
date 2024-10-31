@@ -2,27 +2,36 @@
 function addToHistory(entry) {
     const history = document.getElementById('history');
     let savedHistory = JSON.parse(localStorage.getItem("calcHistory")) || [];
-    
-    // Delete the "No History Yet" once it is added
+
+    // Clear the "No history yet" message if it exists
     if (history.innerText.includes("No history yet")) {
         history.innerHTML = ''; // Clear the content
     }
-    
+
     // Add the new entry to the history
-    history.innerHTML += `<div>${entry}</div>`;
-    
+    const entryDiv = document.createElement('div');
+    entryDiv.classList.add('history-entry');
+    entryDiv.innerText = entry;
+    history.appendChild(entryDiv);
+
     // Update local storage
     savedHistory.push(entry);
     localStorage.setItem("calcHistory", JSON.stringify(savedHistory));
 }
 
-// Load history from local storage
+// Load history from local storage on startup
 function loadHistory() {
     const savedHistory = JSON.parse(localStorage.getItem("calcHistory")) || [];
     const historyElement = document.getElementById("history");
 
     if (savedHistory.length > 0) {
-        historyElement.innerHTML = savedHistory.map(entry => `<div>${entry}</div>`).join("");
+        historyElement.innerHTML = ''; // Clear existing content
+        savedHistory.forEach(entry => {
+            const entryDiv = document.createElement('div');
+            entryDiv.classList.add('history-entry');
+            entryDiv.innerText = entry;
+            historyElement.appendChild(entryDiv);
+        });
     }
 }
 
@@ -31,3 +40,5 @@ function clearHistory() {
     localStorage.removeItem("calcHistory");
     document.getElementById("history").innerHTML = "No history yet";
 }
+
+
