@@ -17,44 +17,71 @@
         return (0.299 * r + 0.587 * g + 0.114 * b); //(Luminance Formula)
     }
     
-        // Function to set theme from color picker
-        function setThemeFromColor(event) {
-        const selectedColor = event.target.value;
-        
-        // Change the body background color
-        document.body.style.backgroundColor = selectedColor;
-    
-        // Change calculator background color
-        const calculator = document.querySelector('.bg-white');
-        calculator.style.backgroundColor = adjustBrightness(selectedColor, -30);
-    
-        // Change the color of the screen
-        const screen = document.getElementById('screen');
-        screen.style.backgroundColor = adjustBrightness(selectedColor, -50);
-        
-         // Change header background color
-         const header = document.querySelector('header');
-         header.style.backgroundColor = selectedColor; // Set header color
-     
-         // Calculate brightness for text color adjustment
-         const brightness = getBrightness(selectedColor);
-         // Change header text color based on brightness
-         header.style.color = brightness < 128 ? '#fff' : '#000';
-    
-         // Change the About button color
-        const aboutButton = document.getElementById('about-btn');
-        aboutButton.style.backgroundColor = adjustBrightness(selectedColor, -10); // Darken button background slightly
-        aboutButton.style.color = brightness < 128 ? '#fff' : '#000'; // Adjust text color
-               
-        // Change button colors
-        const buttons = document.querySelectorAll('.bg-gray-400');
-        buttons.forEach(button => {
-            button.style.backgroundColor = adjustBrightness(selectedColor, 20);
-            
-            const brightness = getBrightness(adjustBrightness(selectedColor, 20));
-            button.style.color = brightness < 128 ? '#fff' : '#000'; // Adjust text color
-        });
-    }
+// Function to set theme from color picker
+function setThemeFromColor(event) {
+    const selectedColor = event.target.value;
+
+    // Change the body background color
+    document.body.style.backgroundColor = selectedColor;
+
+    // Change calculator background color
+    const calculator = document.querySelector('.bg-white');
+    calculator.style.backgroundColor = adjustBrightness(selectedColor, -30);
+
+    // Change the color of the screen
+    const screen = document.getElementById('screen');
+    screen.style.backgroundColor = adjustBrightness(selectedColor, -50);
+
+    // Change header background color
+    const header = document.querySelector('header');
+    header.style.backgroundColor = selectedColor;
+
+    // Calculate brightness for text color adjustment
+    const brightness = getBrightness(selectedColor);
+    header.style.color = brightness < 128 ? '#fff' : '#000';
+
+    // Change the About button color
+    const aboutButton = document.getElementById('about-btn');
+    aboutButton.style.backgroundColor = adjustBrightness(selectedColor, -10);
+    aboutButton.style.color = brightness < 128 ? '#fff' : '#000';
+
+    // Change button colors
+    const buttons = document.querySelectorAll('.bg-gray-400');
+    buttons.forEach(button => {
+        button.style.backgroundColor = adjustBrightness(selectedColor, 20);
+        button.style.color = getBrightness(adjustBrightness(selectedColor, 20)) < 128 ? '#fff' : '#000';
+    });
+
+    // Change history section outer container background color
+    const historyOuterContainer = document.querySelector('.col-span-1.md\\:col-span-1.bg-gray-300.hidden.md\\:block');
+    historyOuterContainer.style.backgroundColor = adjustBrightness(selectedColor, -30);
+    historyOuterContainer.style.color = brightness < 128 ? '#fff' : '#000';
+
+    // Change history inner content background color
+    const historySection = document.getElementById('history');
+    historySection.style.backgroundColor = adjustBrightness(selectedColor, -20);
+    historySection.style.color = brightness < 128 ? '#fff' : '#000';
+
+    // Change "Clear History" button color
+    const clearHistoryButton = document.getElementById('clear-history-btn');
+    clearHistoryButton.style.backgroundColor = adjustBrightness(selectedColor, -40);
+    clearHistoryButton.style.color = brightness < 128 ? '#fff' : '#000';
+
+    // Change Themes Section (left side theme selector container)
+    const themesSection = document.querySelector('.col-span-1.md\\:col-span-1.bg-gray-300.hidden.md\\:flex');
+    themesSection.style.backgroundColor = adjustBrightness(selectedColor, -30);
+    themesSection.style.color = brightness < 128 ? '#fff' : '#000';
+
+    // Change Reset Theme Button color
+    const resetThemeButton = document.getElementById('reset-theme-btn');
+    resetThemeButton.style.backgroundColor = adjustBrightness(selectedColor, -40);
+    resetThemeButton.style.color = brightness < 128 ? '#fff' : '#000';
+
+    // Change Mobile Reset Theme Button color
+    const resetThemeButtonMobile = document.getElementById('reset-theme-btn-mobile');
+    resetThemeButtonMobile.style.backgroundColor = adjustBrightness(selectedColor, -40);
+    resetThemeButtonMobile.style.color = brightness < 128 ? '#fff' : '#000';
+}
     
         // Reset theme function
 document.getElementById('reset-theme-btn').addEventListener('click', () => {
@@ -85,7 +112,18 @@ document.getElementById('reset-theme-btn').addEventListener('click', () => {
         button.style.backgroundColor = ''; // Reset button background
         button.style.color = ''; // Reset button text color
     });
+
+    // Reset history section background color
+    const historySection = document.getElementById('history');
+    historySection.style.backgroundColor = ''; // Reset history background
+    historySection.style.color = ''; // Reset history text color
+
+    // Reset theme section background color
+    const themeSection = document.querySelector('.bg-gray-300');
+    themeSection.style.backgroundColor = ''; // Reset theme section background
+    themeSection.style.color = ''; // Reset theme section text color
 });
+
     
         //Add event listeners to the color pickers
         document.getElementById('color-picker').addEventListener('input', setThemeFromColor);
