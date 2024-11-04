@@ -4,7 +4,8 @@
 
 Responsive Calculator is a fully interactive web-based calculator designed to provide a user-friendly and customizable calculation experience. The application supports various mathematical operations and includes additional features such as theming options, a persistent history saved in local storage, and keyboard support for seamless user interactions.
 
-![image](https://github.com/user-attachments/assets/1e624b15-7aa8-4bd7-a3b4-c34f0ee8f7ce)
+![image](https://github.com/user-attachments/assets/fa211149-2877-4529-9a79-9ca065074dda)
+
 
 ## Features
 
