@@ -57,18 +57,35 @@
     }
     
         // Reset theme function
-        document.getElementById('reset-theme-btn').addEventListener('click', () => {
-        document.body.style.backgroundColor = ''; // Reset to default
-        const calculator = document.querySelector('.bg-white');
-        calculator.style.backgroundColor = ''; // Reset calculator background
-        const screen = document.getElementById('screen');
-        screen.style.backgroundColor = ''; // Reset screen background
-        const buttons = document.querySelectorAll('.bg-gray-400');
-        buttons.forEach(button => {
-            button.style.backgroundColor = ''; // Reset button backgrounds
-            button.style.color = ''; // Reset button text color
-        });
+document.getElementById('reset-theme-btn').addEventListener('click', () => {
+    // Reset the body background color
+    document.body.style.backgroundColor = ''; // Reset to default
+
+    // Reset the calculator background color
+    const calculator = document.querySelector('.bg-white');
+    calculator.style.backgroundColor = ''; // Reset calculator background
+
+    // Reset the screen background color
+    const screen = document.getElementById('screen');
+    screen.style.backgroundColor = ''; // Reset screen background
+
+    // Reset header background and text color
+    const header = document.querySelector('header');
+    header.style.backgroundColor = ''; // Reset header background
+    header.style.color = ''; // Reset header text color
+
+    // Reset About button color
+    const aboutButton = document.getElementById('about-btn');
+    aboutButton.style.backgroundColor = ''; // Reset About button background
+    aboutButton.style.color = ''; // Reset About button text color
+
+    // Reset button colors
+    const buttons = document.querySelectorAll('.bg-gray-400');
+    buttons.forEach(button => {
+        button.style.backgroundColor = ''; // Reset button background
+        button.style.color = ''; // Reset button text color
     });
+});
     
         //Add event listeners to the color pickers
         document.getElementById('color-picker').addEventListener('input', setThemeFromColor);
