@@ -14,21 +14,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Function to copy result to the clipboard
-    function copyToClipboard() {
-        if (result !== null) {  // Check that result has a value
-            navigator.clipboard.writeText(result.toString()).then(() => {
-                console.log('Text copied to clipboard:', result);
-                clipboardModal.classList.remove('hidden');
-                setTimeout(() => {
-                    clipboardModal.classList.add('hidden');
-                }, 1000);
-            }).catch(err => {
-                console.error('Failed to copy:', err);
-            });
-        } else {
-            console.error('No result to copy');
-        }
+function copyToClipboard() {
+    if (result !== null) {  // Check that result has a value
+        navigator.clipboard.writeText(result.toString()).then(() => {
+            console.log('Text copied to clipboard:', result);
+            clipboardModal.classList.remove('hidden');
+            clipboardModal.style.opacity = "1"; // Make sure it's visible
+            clipboardModal.innerText = "Result copied to clipboard!"; // Add message text
+            setTimeout(() => {
+                clipboardModal.style.opacity = "0"; // Gradually hide
+            }, 2000); // Show for 2 seconds
+            setTimeout(() => {
+                clipboardModal.classList.add('hidden');
+            }, 2500); // Fully hide after 2.5 seconds
+        }).catch(err => {
+            console.error('Failed to copy:', err);
+        });
+    } else {
+        console.error('No result to copy');
     }
+}
+
 
     // Show the modal when the "About" button is clicked
     aboutBtn.addEventListener('click', () => {
