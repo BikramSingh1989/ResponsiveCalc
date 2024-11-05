@@ -113,35 +113,20 @@ document.getElementById('reset-theme-btn').addEventListener('click', () => {
         button.style.color = ''; // Reset button text color
     });
 
-    // Reset history section outer container background color
-    const historyOuterContainer = document.querySelector('.col-span-1.md\\:col-span-1.bg-gray-300.hidden.md\\:block');
-    historyOuterContainer.style.backgroundColor = ''; // Reset history outer container background
-    historyOuterContainer.style.color = ''; // Reset history outer container text color
-
-    // Reset history inner content background color
+    // Reset history section background color
     const historySection = document.getElementById('history');
-    historySection.style.backgroundColor = ''; // Reset history inner content background
-    historySection.style.color = ''; // Reset history inner content text color
+    historySection.style.backgroundColor = ''; // Reset history background
+    historySection.style.color = ''; // Reset history text color
 
-    // Reset "Clear History" button color
-    const clearHistoryButton = document.getElementById('clear-history-btn');
-    clearHistoryButton.style.backgroundColor = ''; // Reset clear history button background
-    clearHistoryButton.style.color = ''; // Reset clear history button text color
+    // Reset outer history container color
+    const historyOuterContainer = document.querySelector('.col-span-1.md\\:col-span-1.bg-gray-300.hidden.md\\:block');
+    historyOuterContainer.style.backgroundColor = ''; // Reset outer history background
+    historyOuterContainer.style.color = ''; // Reset outer history text color
 
     // Reset theme section background color
-    const themesSection = document.querySelector('.col-span-1.md\\:col-span-1.bg-gray-300.hidden.md\\:flex');
-    themesSection.style.backgroundColor = ''; // Reset theme section background
-    themesSection.style.color = ''; // Reset theme section text color
-
-    // Reset Reset Theme Button color
-    const resetThemeButton = document.getElementById('reset-theme-btn');
-    resetThemeButton.style.backgroundColor = ''; // Reset button background
-    resetThemeButton.style.color = ''; // Reset button text color
-
-    // Reset Mobile Reset Theme Button color
-    const resetThemeButtonMobile = document.getElementById('reset-theme-btn-mobile');
-    resetThemeButtonMobile.style.backgroundColor = ''; // Reset button background
-    resetThemeButtonMobile.style.color = ''; // Reset button text color
+    const themeSection = document.querySelector('.bg-gray-300');
+    themeSection.style.backgroundColor = ''; // Reset theme section background
+    themeSection.style.color = ''; // Reset theme section text color
 });
     
         //Add event listeners to the color pickers
